@@ -50,7 +50,7 @@ form3.addEventListener('submit', function (evento) {
     else if (numeroEdad > 10 || numeroEdad < 18) {
         document.querySelector("#premio").innerHTML = "no hay nada para usted"
     }
-    
+
 
 
     if (genero == "mujer") {
@@ -67,5 +67,39 @@ form3.addEventListener('submit', function (evento) {
 
 
 
+let form5 = document.querySelector("#formulario_5")
+form5.addEventListener('submit', function (evento) {
+    evento.preventDefault()
+
+    let numeroTabla = evento.target.numero_tabla.value
+    let numero = evento.target.numero_5.value
+
+    for (x = 1; x <= numero; x++) {
+        let resultado = numeroTabla * x
+        document.querySelector("#resultado5").innerHTML += ` ${numeroTabla} x ${x} = ${resultado} <br>`
+    }
 
 
+})
+
+let form6 = document.querySelector("#formulario6")
+form6.addEventListener('submit', function (evento) {
+    evento.preventDefault()
+
+    let promedio = parseFloat(evento.target.promedio.value)
+    let matricula = 1000000
+
+    if (promedio < 3) {
+        let pagarMatricula = matricula
+        document.querySelector("#total_pagar").innerHTML = `total a pagar $ ${pagarMatricula}`
+    }
+    else if (promedio <= 4) {
+        pagarMatricula= matricula * 0.95
+        document.querySelector("#total_pagar").innerHTML =`total a pagar $ ${pagarMatricula}`
+    }
+    else if (promedio > 4) {
+        pagarMatricula= matricula * 0.50
+        document.querySelector("#total_pagar").innerHTML = `totala a pagar $ ${pagarMatricula}`
+    }
+}
+)

@@ -15,7 +15,6 @@ form.addEventListener('submit', function (evento) {
 })
 
 
-
 let form2 = document.querySelector("#formulario2")
 form2.addEventListener('submit', function (evento) {
     evento.preventDefault()
@@ -62,7 +61,6 @@ form3.addEventListener('submit', function (evento) {
     else {
         document.querySelector("#premio_2").innerHTML = "no hay nada para usted"
     }
-
 })
 
 
@@ -77,8 +75,6 @@ form5.addEventListener('submit', function (evento) {
         let resultado = numeroTabla * x
         document.querySelector("#resultado5").innerHTML += ` ${numeroTabla} x ${x} = ${resultado} <br>`
     }
-
-
 })
 
 let form6 = document.querySelector("#formulario6")
@@ -103,13 +99,15 @@ form6.addEventListener('submit', function (evento) {
     else {
         document.querySelector("#total_pagar").innerHTML = "ingresa un valor"
     }
-}
-)
-let cantidad = 0
+})
+
+
+
+let cantidad = 0;
 let form4 = document.querySelector("#formulario_4")
 form4.addEventListener('submit', function (evento) {
     evento.preventDefault()
-    let pedidoCliente = evento.target.menu_pedido.value
+    let pedidoCliente = evento.target.menu_pedido.value;
 
 
     let menu = [
@@ -119,31 +117,16 @@ form4.addEventListener('submit', function (evento) {
         { nombre: "empanada", precio: 2500 }
     ]
 
-    let buscar = menu.findIndex(comida => comida.nombre == pedidoCliente)
-    cantidad = cantidad + menu[buscar].precio;
+    let buscar = menu.findIndex(comida => comida.nombre == pedidoCliente);
 
-    if (buscar != -1) {
-        console.log(cantidad);
+
+    if (buscar !== -1) {
+        cantidad = cantidad + menu[buscar].precio;
     }
-    else if (buscar == "pagar") {
+    else if (pedidoCliente === "pagar") {
         document.querySelector("#total_pagar1").innerHTML = `total a pagar $${cantidad}`
-
     }
-
-
-
-
+    else {
+        document.querySelector("#total_pagar1").innerHTML = "pon un producto valido"
+    }
 })
-document.querySelector("#total_paga1").innerHTML = "pon un producto valido"
-
-
-
-// {
-// let buscar = menu.findIndex(comida => comida.nombre === pedidoCliente);
-// if (buscar !== -1) {
-//     cantidad += menu[buscar].precio;
-//     console.log(`Añadido ${pedidoCliente} al pedido. Total acumulado: $${cantidad}`);
-// } else {
-//     console.log("Plato no encontrado en el menú.");
-// }
-// });
